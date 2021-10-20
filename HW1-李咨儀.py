@@ -16,6 +16,10 @@ size = (400,400)
 screen = pygame.display.set_mode(size)
 pygame.display.set_caption('1234')
 
+
+x = random.randrange(0, 400)
+y = random.randrange(0, 400)
+
 #視窗關閉開關
 done = False
 
@@ -32,17 +36,20 @@ while not done:
     
     #主要程式碼
     
-for i in range(50):      
-   x = random.randint(50, 350)  
-   for j in range(200):
-        pygame.draw.circle(screen,WHITE,(x,y),5,1)
-    
-        pygame.display.flip()
+pygame.draw.circle(screen,WHITE,(x,y),5,1)
 
-        clock.tick(1)
+y = y + 1
+
+if y > 400:
+        y = 0
+        x = random.randrange(0, 400)
+    
+pygame.display.flip()
+
+clock.tick(5)
      
-        pygame.init()
+pygame.init()
      
-        y = y + 1
+y = y + 1
 
 pygame.quit()
